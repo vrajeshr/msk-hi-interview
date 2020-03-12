@@ -1,5 +1,5 @@
 
-# Simple chat webb app
+# Simple chat web app
 Simple chat application using node.js (express) and socket.io.
 
 ## Prerequisites
@@ -25,3 +25,5 @@ npm start
 cd backend/
 nodemon app.js
 ```
+
+5. Navigate to http://localhost:3000/, or the URL found on the first terminal window

@@ -9,24 +9,42 @@ server = app.listen(8080, function() {
 const io = socket(server);
 
 let currentlyActiveUsers = [];
+let messageList = [];
+let messageNumber = 1;
 
 io.on("connection", socket => {
   console.log("PING TO SERVER");
 
   socket.on("USER_CONNECTED", data => {
     /*
-      When user connects, add user's socket ID to active users with the name
-      Then, add the unique socket ID to active users list
+      When use connects, add the unique socket ID to active users list
       Finally, emit the current active list & unique socket identifier       
     */
-    console.log("USER HAS CONNECTED WITH NAME & ID : ", data, socket.id);
-
+   console.log("USER HAS CONNECTED WITH NAME & ID : ", data, socket.id);
     currentlyActiveUsers.push({
       user: data.connectedUser,
       id: socket.id
     });
 
+    io.emit("CHATROOM_UPDATE", currentlyActiveUsers, socket.id);
+    io.emit("MESSAGE_LIST_UPDATE", messageList);
+
     console.log("Active users", currentlyActiveUsers);
+  });
+
+  socket.on("MESSAGE_SENT", message => {
+    /*
+      When a socket (client) sends a message to the server store it to a 
+      message buffer and emit new message chat log.
+      Also, update local storage with new chat log. 
+      (In the event that the server disconnects, save the messages on each sent message.)
+    */
+    messageNumber += 1;
+    messageList.push({
+      ...message,
+      messageID: messageNumber
+    });
+    io.emit("MESSAGE_LIST_UPDATE", messageList);
   });
 
   socket.on("disconnect", () => {
@@ -40,5 +58,6 @@ io.on("connection", socket => {
     })
     
     io.emit("CHATROOM_UPDATE", currentlyActiveUsers);
+    io.emit("MESSAGE_LIST_UPDATE", messageList);
   });
 });

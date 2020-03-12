@@ -1,0 +1,67 @@
+.chatBox {
+    width: 70%;
+    margin: 10px;
+    font-size: 15px;
+    display : flex;
+    flex-direction: column;
+}
+
+.textAndSendContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.inputBoxContainer {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    flex: 1;
+}
+
+.inputBox {
+
+}
+
+.sendButtonContainer{
+    flex : 4
+}
+
+.sendButton {
+    
+}
+
+.sendField {
+    flex : 1;
+    justify-content: flex-end;
+    margin: 10px;
+}
+
+.messageContainer {
+    flex : 10;
+    overflow-y: scroll;
+    border: 1px solid black;
+
+}
+
+.messageFeed {
+    width : 100%;
+    word-wrap: break-word;
+}
+
+.message {
+    display : flex;
+}
+
+.usersName {
+    width : 30%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+
+}
+
+.usersMessage {
+    width: 70%;
+    text-align: left;
+    padding-right: 10px;
+}
