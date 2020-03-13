@@ -23,7 +23,12 @@ npm start
 
 ```
 cd backend/
-nodemon app.js
+nodemon app.js --ignore *.json
+```
+
+If Nodemon doesn't automatically install, run the following command and run 
+```
+npm install -g nodemon
 ```
 
 5. Navigate to http://localhost:3000/, or the URL found on the first terminal window
