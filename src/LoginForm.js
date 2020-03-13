@@ -19,7 +19,7 @@ class LoginForm extends React.Component {
       <div className="loginBox">
         <form onSubmit={this.handleSignIn.bind(this)}>
           <h3>What is your name?</h3>
-          <input type="text" ref="username" placeholder="Enter your name" />
+          <input type="text" ref="username" placeholder="Enter your name" size='32' />
           <input type="submit" value="Login" />
           <br />
           <br />
