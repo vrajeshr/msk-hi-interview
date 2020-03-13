@@ -1,6 +1,6 @@
 
 # Simple chat web app
-Simple chat application using node.js (express) and socket.io.
+Simple chat application using React, node.js (express) and socket.io.
 
 ## Prerequisites
 Install Node.JS
