@@ -26,7 +26,7 @@ class MessageFeed extends React.Component {
           return (
             <>
               <div className="messageFeed">
-                <Message key={item.messageID} user={item.user} message={item.message} sender={this.props.userID} />
+                <Message key={item.messageID} user={item.user} message={item.message} />
               </div>
               <div
                 ref={el => {
