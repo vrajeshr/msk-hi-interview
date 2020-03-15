@@ -22,11 +22,7 @@ describe("<Message />", () => {
     const currentUser = "unitTester"
 
     const displayedMessage = shallow(<Message key={key} user={currentUser} message={inputMesssage} />);
-
-    expect(displayedMessage.containsMatchingElement(
-      <p className="usersName">
-        unitTester
-      </p>
-    )).toBeTruthy()
+    expect(displayedMessage.find('p.usersName').text()).toEqual(currentUser)
+    expect(displayedMessage.find('p.usersMessage').text()).toEqual(inputMesssage)
   });
 });
