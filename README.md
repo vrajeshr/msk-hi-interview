@@ -13,9 +13,8 @@ Install Node.JS
 
 ```
 npm install
-npm start
+npm run start
 ```
-
 
 3. Open another terminal window and navigate to the backend/ folder
 
@@ -23,14 +22,7 @@ npm start
 
 ```
 cd backend/
-nodemon app.js --ignore *.json
-```
-
-If Nodemon doesn't automatically install, run the following command
-```
-npm install -g nodemon
-cd backend/
-nodemon app.js --ignore *.json
+node app.js
 ```
 
 5. Navigate to http://localhost:3000/, or the URL found on the first terminal window
